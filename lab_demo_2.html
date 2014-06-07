@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lab 2</title>
+<style>
+#pic{width:300px; height:300px;}
+	
+nav a{ font:2em/2 Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+			color:green;
+			padding:1em;
+			}
+	p{ font:1.25em/1.6 Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;}
+</style>
+</head>
+
+<body>
+
+	<nav id="frogs">
+    	 <a href="imgs/frog1.jpg" title="One Time Frog">Pic1</a>
+        <a href="imgs/frog2.jpg" title="Two Time Frog">Pic2</a>
+        <a href="imgs/frog3.jpg" title="Three Time Frog">Pic3</a>
+    </nav>
+    
+    <img id="pic" src="imgs/frog1.jpg" alt="js gallery"/>
+    <p id="caption">One Time Frog</p>
+    
+    <script>
+	
+		var frogs = document.getElementById('frogs');
+		var pic = document.querySelector('#pic');
+		var caption = document.querySelector('#caption');
+		var links = document.querySelectorAll('#frogs a');
+	
+		for(var i = 0; i<links.length; i++)
+		{
+			links[i].onclick = changePic;
+		}
+	
+		function changePic(e)
+		{
+			e.preventDefault();
+			pic.src = e.target.href;
+			caption.firstChild.nodeValue = e.target.title;
+		}
+		
+	</script>
+</body>
+</html>
